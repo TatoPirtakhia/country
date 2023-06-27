@@ -32,12 +32,16 @@ function Country(props) {
       const currency = data[key];
       return currency.name;
     });
-  
+
     return currencyNames.join(", ");
   };
-  
+  const languages = (data) => {
+    const languageValues = Object.values(data);
+    return languageValues;
+  };
+
   return (
-    <div className="pt-10 w-full flex flex-col items-center">
+    <div className="pt-10 w-full flex flex-col items-center h-[100vh] ">
       <div className="flex flex-col items-start  w-[90%] gap-2 ">
         <div
           onClick={goback}
@@ -46,43 +50,53 @@ function Country(props) {
           <div>
             <Arrowback />
           </div>
-          <p>Back</p>
+          <p className="text-[#111517] dark:text-white">Back</p>
         </div>
-        <div className="mt-[65px]">
+        <div className="mt-[65px] h-full">
           {filteredCountry.map((data, index) => {
             return (
-              <div key={index} className="flex flex-col items-start">
-                <img src={data.flags.png} alt="img" className="rounded-md" />
-                <h1 className="mt-10 nunito font-[800] text-[22px]">
+              <div key={index} className="flex flex-col items-start gap-2 h-full">
+                <img
+                  src={data.flags.png}
+                  alt="img"
+                  className="rounded-md w-[320px] h-[230px]"
+                />
+                <h1 className="mt-10 nunito font-[800] text-[22px] text-[#111517] dark:text-white">
                   {data.name.common}
                 </h1>
-                <p>{`Native Name`}</p>
-                <p>
-                  Population: <span>{data.population.toLocaleString()}</span>
+                <p className="text-[#111517] dark:text-white mt-5 nunito font-[800]">{`Native Name`}</p>
+                <p className="text-[#111517] dark:text-white nunito font-[800] ">
+                  Population:{" "}
+                  <span className="font-[600]">
+                    {data.population.toLocaleString()}
+                  </span>
                 </p>
-                <p>
-                  Region: <span>{data.region}</span>{" "}
+                <p className="text-[#111517] dark:text-white nunito font-[800]">
+                  Region: <span className="font-[600]">{data.region}</span>{" "}
                 </p>
-                <p>
-                  Sub Region: <span>{data.subregion}</span>
+                <p className="text-[#111517] dark:text-white nunito font-[800]">
+                  Sub Region:{" "}
+                  <span className="font-[600]">{data.subregion}</span>
                 </p>
-                <p>
-                  Capital:<span>{data.capital}</span>
+                <p className="text-[#111517] dark:text-white nunito font-[800]">
+                  Capital:<span className="font-[600]">{data.capital}</span>
                 </p>
-                <p>
-                  Top Level Domain: <span>{data.tld[0]}</span>
+                <p className="text-[#111517] dark:text-white nunito font-[800] mt-8">
+                  Top Level Domain:{" "}
+                  <span className="font-[600]">{data.tld[0]}</span>
                 </p>
-                <p>
-                  Currencies: <span>{curenci(data.currencies)}</span>
+                <p className="text-[#111517] dark:text-white nunito font-[800]">
+                  Currencies:{" "}
+                  <span className="font-[600]">{curenci(data.currencies)}</span>
                 </p>
-                <p></p>
-                <p></p>
-                <p></p>
-
-                <p></p>
-                <p></p>
-                <p></p>
-                <p></p>
+                <p className="text-[#111517] dark:text-white nunito font-[800]">
+                  Languages:{" "}
+                  <span className="font-[600]">
+                    {languages(data.languages).join(", ")}
+                  </span>
+                </p>
+                <p className="text-[#111517] dark:text-white nunito font-[800] mt-8 mb-8">Border Countries:</p>
+                
               </div>
             );
           })}
