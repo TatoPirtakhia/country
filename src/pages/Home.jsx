@@ -30,7 +30,7 @@ function Home(props) {
         filteredCountries.map((country, index) => (
           <div
             key={index}
-            className="flex flex-col mb-14 dark:bg-[#2B3844] rounded-md bg-white"
+            className="flex flex-col mb-14 dark:bg-[#2B3844] rounded-md bg-white shadow-navShadoow"
             onClick={() => {
               setShowNav(false)
               if(continent){ 
@@ -41,13 +41,13 @@ function Home(props) {
             }}
           >
             <img src={country.flags.png} alt="img" className="rounded-t-md w-[264px] h-[160px]  " />
-            <div className="pt-6 pl-6 pb-[46px]">
-              <h1 className="mb-4 text-[#111517] dark:text-white">
+            <div className="pt-6 pl-6 pb-[46px] ">
+              <h1 className="mb-4 text-[#111517] dark:text-white nunito font-[800]">
                 {country.name.common}
               </h1>
-              <p className="text-[#111517] dark:text-white nunito text-[14px] font-[600]">{`Population: ${country.population.toLocaleString()}`}</p>
-              <p className="text-[#111517] dark:text-white nunito text-[14px] font-[600]">{`Region: ${country.region}`}</p>
-              <p className="text-[#111517] dark:text-white nunito text-[14px] font-[600]">{`Capital: ${country.capital}`}</p>
+              <p className="text-[#111517] dark:text-white nunito text-[14px] font-[800]">Population: <span className="font-[600]">{country.population.toLocaleString()}</span> </p>
+              <p className="text-[#111517] dark:text-white nunito text-[14px] font-[800]">Region: <span className="font-[600]"> {country.region}</span></p>
+              <p className="text-[#111517] dark:text-white nunito text-[14px] font-[800]">Capital:<span className="font-[600]">{country.capital}</span></p>
             </div>
           </div>
         ))
