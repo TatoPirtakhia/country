@@ -3,7 +3,7 @@ import Arrowback from "../assets/ArrowBack";
 import { useEffect, useState } from "react";
 
 function Country(props) {
-  const { countries, setShowNav } = props;
+  const { dark, countries, setShowNav } = props;
   const { country } = useParams();
   const [filteredCountry, setFilteredCountry] = useState([]);
   useEffect(() => {
@@ -41,14 +41,14 @@ function Country(props) {
   };
 
   return (
-    <div className="pt-10 w-full flex flex-col items-center h-[100vh] ">
-      <div className="flex flex-col items-start  w-[90%] gap-2 ">
+    <div className="pt-10 w-full flex flex-col items-center  dark:bg-[#202C36] ">
+      <div className="flex flex-col items-start  w-[90%] gap-2 dark:bg-[#202C36] ">
         <div
           onClick={goback}
           className="flex items-center justify-center w-[104px] h-8 gap-2 shadow-back"
         >
           <div>
-            <Arrowback />
+            <Arrowback dark={dark}/>
           </div>
           <p className="text-[#111517] dark:text-white">Back</p>
         </div>

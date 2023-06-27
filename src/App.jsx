@@ -150,11 +150,11 @@ function App() {
         />
         <Route
           path="/home/:continent/country/:country"
-          element={<Country countries={countries} setShowNav={setShowNav}/>}
+          element={<Country dark={dark} countries={countries} setShowNav={setShowNav}/>}
         />
         <Route
           path="/home/country/:country"
-          element={<Country countries={countries} setShowNav={setShowNav}/>}
+          element={<Country dark={dark} countries={countries} setShowNav={setShowNav}/>}
         />
       </Routes>
     </div>
