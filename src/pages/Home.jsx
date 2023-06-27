@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 function Home(props) {
-  const {showNav, setShowNav,input, countries } = props;
+  const {setShowNav,input, countries } = props;
   const [filteredCountries, setFilteredCountries] = useState([]);
   const { continent } = useParams();
   const navigate = useNavigate()
@@ -25,7 +25,7 @@ function Home(props) {
   }, [input, countries,continent]);
 
   return (
-    <div className="w-full flex flex-col items-center mt-4 h-[full] dark:bg-[#202C36]">
+    <div className="w-full flex  items-center justify-center gap-[70px] flex-wrap mt-4 h-[full] dark:bg-[#202C36]">
       {filteredCountries.length !== 0 ? (
         filteredCountries.map((country, index) => (
           <div
@@ -40,7 +40,7 @@ function Home(props) {
               }
             }}
           >
-            <img src={country.flags.png} alt="img" className="rounded-t-md" />
+            <img src={country.flags.png} alt="img" className="rounded-t-md w-[264px] h-[160px]  " />
             <div className="pt-6 pl-6 pb-[46px]">
               <h1 className="mb-4 text-[#111517] dark:text-white">
                 {country.name.common}

@@ -58,9 +58,9 @@ function App() {
   };
 
   return (
-    <div className={`bg-white dark:bg-[#202C36] h-[100vh]`}>
-      <nav className="w-full flex flex-col items-center ">
-        <div className="w-full h-20 shadow-navShadow flex items-center pl-[5%] gap-[25%] bg-white dark:bg-[#2B3844]">
+    <div className={`bg-white dark:bg-[#202C36] h-[100vh] `}>
+      <nav className="w-full flex flex-col items-center xl:mb-12 ">
+        <div className="w-full h-20 shadow-navShadow flex items-center pl-[5%] justify-between pr-[5%] bg-white dark:bg-[#2B3844]">
           <p className="nunito font-[800] text-[15px] text-[#111517] dark:text-white">
             Where in the world?
           </p>
@@ -73,13 +73,14 @@ function App() {
             </p>
           </div>
         </div>
-        <div className={`w-full pl-[5%]  ${!showNav?"hidden":''}`}>
-          <div className="shadow-inputShadow w-[90%] h-12 mt-[26px] flex items-center  pl-8 gap-6 rounded-[5px] bg-white dark:bg-[#2B3844]">
+        <div className={`w-full pl-[5%]  ${!showNav?"hidden":''} xl:flex xl:items-center justify-between pr-[10%]`}>
+          <div className="shadow-inputShadow w-[90%] xl:w-[25%] h-12 mt-[26px] flex items-center  pl-8 gap-6 rounded-[5px] bg-white dark:bg-[#2B3844]">
             <div>
               <Search />
             </div>
             <input
               type="text"
+              value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Search for a country…"
               className="outline-none dark:bg-[#2B3844] nunito font-[600] dark:text-white dark:placeholder-white"
@@ -150,11 +151,11 @@ function App() {
         />
         <Route
           path="/home/:continent/country/:country"
-          element={<Country dark={dark} countries={countries} setShowNav={setShowNav}/>}
+          element={<Country setInput={setInput} dark={dark} countries={countries} setShowNav={setShowNav}/>}
         />
         <Route
           path="/home/country/:country"
-          element={<Country dark={dark} countries={countries} setShowNav={setShowNav}/>}
+          element={<Country setInput={setInput} dark={dark} countries={countries} setShowNav={setShowNav}/>}
         />
       </Routes>
     </div>
