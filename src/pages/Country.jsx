@@ -6,6 +6,7 @@ function Country(props) {
   const {setInput, dark, countries, setShowNav } = props;
   const { country } = useParams();
   const [filteredCountry, setFilteredCountry] = useState([]);
+
   useEffect(() => {
     const formattedCountry = decodeURIComponent(country.replace(/%20/g, " "));
     const filtered = countries.filter(
@@ -13,6 +14,7 @@ function Country(props) {
     );
     setFilteredCountry(filtered);
   }, []);
+
   const navigate = useNavigate();
   const params = useParams();
   const goback = () => {
@@ -68,7 +70,7 @@ function Country(props) {
             return (
               <div
                 key={index}
-                className="flex flex-col items-start gap-2 h-full xl:flex-row xl:items-center w-full"
+                className="flex flex-col items-start gap-2 h-full  xl:flex-row xl:items-center w-full"
               >
                 <img
                   src={data.flags.png}
@@ -79,43 +81,43 @@ function Country(props) {
                 <h1 className="mt-10 nunito font-[800] text-[22px] text-[#111517] dark:text-white">
                   {data.name.common}
                 </h1>
-                <div className="xl:flex xl:gap-[50px]">
-                <div>
+                <div className="xl:flex xl:gap-[90px]">
+                <div className="xl:flex xl:flex-col xl:gap-2">
                 <p className="text-[#111517] dark:text-white mt-5 nunito font-[800]">
                   Native Name:
-                  <span className=" font-[600]">
+                  <span className=" font-[300]">
                     {nativeNames(data.name.nativeName)}
                   </span>
                 </p>
                 <p className="text-[#111517] dark:text-white nunito font-[800] ">
                   Population:{" "}
-                  <span className="font-[600]">
+                  <span className="font-[300]">
                     {data.population.toLocaleString()}
                   </span>
                 </p>
                 <p className="text-[#111517] dark:text-white nunito font-[800]">
-                  Region: <span className="font-[600]">{data.region}</span>{" "}
+                  Region: <span className="font-[300]">{data.region}</span>{" "}
                 </p>
                 <p className="text-[#111517] dark:text-white nunito font-[800]">
                   Sub Region:{" "}
-                  <span className="font-[600]">{data.subregion}</span>
+                  <span className="font-[300]">{data.subregion}</span>
                 </p>
                 <p className="text-[#111517] dark:text-white nunito font-[800]">
-                  Capital:<span className="font-[600]">{data.capital}</span>
+                  Capital:<span className="font-[300]">{data.capital}</span>
                 </p>
                 </div>
-                <div>
+                <div className="xl:flex xl:flex-col xl:gap-2">
                 <p className="text-[#111517] dark:text-white nunito font-[800] mt-8">
                   Top Level Domain:{" "}
-                  <span className="font-[600]">{data.tld[0]}</span>
+                  <span className="font-[300]">{data.tld[0]}</span>
                 </p>
                 <p className="text-[#111517] dark:text-white nunito font-[800]">
                   Currencies:{" "}
-                  <span className="font-[600]">{curenci(data.currencies)}</span>
+                  <span className="font-[300]">{curenci(data.currencies)}</span>
                 </p>
                 <p className="text-[#111517] dark:text-white nunito font-[800]">
                   Languages:{" "}
-                  <span className="font-[600]">
+                  <span className="font-[300]">
                     {languages(data.languages).join(", ")}
                   </span>
                 </p>
@@ -125,18 +127,18 @@ function Country(props) {
                   Border Countries:
                 </p>
                 <div className="w-full flex flex-wrap gap-2">
-                  {data.borders.map((border, index) => {
+                  {data.borders ? data.borders.map((border, index) => {
                     return (
                       <div
                         key={index}
-                        className="shadow-borders w-[96px] h-[28px] dark:bg-[#2B3844] flex items-center justify-center rounded-sm"
+                        className="shadow-borders p-4 h-[28px] dark:bg-[#2B3844] flex items-center justify-center rounded-sm"
                       >
                         <p className="dark:text-white nunito font-[300]">
                           {borderNames(border)}
                         </p>
                       </div>
                     );
-                  })}
+                  }):""}
                 </div>
                 </div>
               </div>

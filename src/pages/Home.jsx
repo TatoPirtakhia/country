@@ -25,7 +25,7 @@ function Home(props) {
   }, [input, countries,continent]);
 
   return (
-    <div className="w-full flex  items-center justify-center gap-[70px] flex-wrap mt-4 h-[full] dark:bg-[#202C36]">
+    <div className="w-full flex  items-center justify-center xl:gap-[70px] gap-10 flex-wrap mt-4 h-[full] dark:bg-[#202C36]">
       {filteredCountries.length !== 0 ? (
         filteredCountries.map((country, index) => (
           <div

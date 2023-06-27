@@ -4,7 +4,6 @@ import {
   Navigate,
   Route,
   Routes,
-  useParams,
 } from "react-router-dom";
 import Home from "./pages/Home";
 import Moon from "./assets/Moon";
@@ -60,7 +59,7 @@ function App() {
   return (
     <div className={`bg-white dark:bg-[#202C36] h-[100vh] `}>
       <nav className="w-full flex flex-col items-center xl:mb-12 ">
-        <div className="w-full h-20 shadow-navShadow flex items-center pl-[5%] justify-between pr-[5%] bg-white dark:bg-[#2B3844]">
+        <div className="w-full h-20  flex items-center shadow-navShadoow pl-[5%] justify-between pr-[5%] bg-white dark:bg-[#2B3844]">
           <p className="nunito font-[800] text-[15px] text-[#111517] dark:text-white">
             Where in the world?
           </p>

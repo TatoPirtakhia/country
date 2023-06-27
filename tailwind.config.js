@@ -5,7 +5,7 @@ export default {
   theme: {
     extend: {
       boxShadow: {
-        'navShadoow': "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
+        'navShadoow': "0px 2px 4px 0px rgba(0, 0, 0, 0.16)",
         'inputShadow': "0px 2px 9px 0px rgba(0, 0, 0, 0.15)",
         'filterShadow': "0px 2px 9px 0px rgba(0, 0, 0, 0.15)",
         'back':'0px 0px 7px 0px rgba(0, 0, 0, 0.29)',
